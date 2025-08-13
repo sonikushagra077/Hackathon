@@ -1,0 +1,2 @@
+🌍 Overview
+MissionThali is a community-driven online platform designed to combat food waste and hunger by connecting individuals, businesses, and organizations with surplus food to volunteers who can collect and redistribute it to NGOs, shelters, and people in need. By fostering local collaboration, MissionThali promotes sustainability, reduces food waste, and strengthens community bonds. By making it easy to share food that would otherwise go to waste, MissionThali turns small acts of kindness.
