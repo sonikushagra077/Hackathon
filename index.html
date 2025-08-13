@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MissionThali - Real-time Food Rescue Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Enhanced Loading Screen with Insane Graphics -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="rangoli-pattern"></div>
+            <div class="taj-mahal"></div>
+            
+            <div class="flag-ceremony">
+                <div class="flag-pole"></div>
+                <div class="indian-flag">
+                    <div class="flag-stripe saffron"></div>
+                    <div class="flag-stripe white">
+                        <div class="chakra"></div>
+                    </div>
+                    <div class="flag-stripe green"></div>
+                </div>
+                <div class="person person1">
+                    <div class="person-head"></div>
+                    <div class="person-arms"></div>
+                    <div class="person-body"></div>
+                </div>
+                <div class="person person2">
+                    <div class="person-head"></div>
+                    <div class="person-arms"></div>
+                    <div class="person-body"></div>
+                </div>
+                <div class="person person3">
+                    <div class="person-head"></div>
+                    <div class="person-arms"></div>
+                    <div class="person-body"></div>
+                </div>
+            </div>
+            
+            <div class="loading-text">MissionThali</div>
+            <div class="loading-subtext">Connecting Food with Those in Need</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Header -->
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo" onclick="showSection('home')">🍽️ MissionThali</div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                <nav>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a onclick="showSection('home')" class="nav-link active">Home</a></li>
+                        <li><a onclick="showSection('donate')" class="nav-link">Donate</a></li>
+                        <li><a onclick="showSection('volunteer')" class="nav-link">Volunteer</a></li>
+                        <li><a onclick="showSection('map')" class="nav-link">Live Map</a></li>
+                        <li><a onclick="showSection('about')" class="nav-link">About</a></li>
+                    </ul>
+                </nav>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="showSection('donate')">Donate Now</button>
+                    <button class="btn btn-secondary" onclick="openModal('volunteerModal')">Join as Volunteer</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Home Section -->
+        <section class="page-section active" id="home">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>End Food Waste, Feed the Hungry</h1>
+                    <p>Connect surplus food with those who need it most through our real-time rescue platform</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number" id="mealsCount">1,247</div>
+                            <div class="stat-label">Meals Rescued</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" id="volunteersCount">328</div>
+                            <div class="stat-label">Active Volunteers</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" id="donorsCount">156</div>
+                            <div class="stat-label">Food Donors</div>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="showSection('donate')">Start Donating</button>
+                        <button class="btn btn-secondary" onclick="showSection('map')">View Live Map</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome Content -->
+            <div class="content-section">
+                <div class="container">
+                    <h2 class="section-title">Welcome to MissionThali</h2>
+                    <div class="content-text">
+                        <p>In a world where millions go hungry while tons of food are wasted daily, MissionThali stands as a beacon of hope and practical solution. We are more than just a platform – we are a movement that connects hearts, hands, and surplus food to create a sustainable ecosystem of care and compassion.</p>
+                        
+                        <p>Every day in India, restaurants discard perfectly good food, wedding halls throw away elaborate spreads, and households struggle to manage excess preparation. Meanwhile, just a few kilometers away, families wonder where their next meal will come from. MissionThali bridges this gap with technology, community spirit, and a shared commitment to ensuring no one sleeps hungry.</p>
+                        
+                        <p>Our real-time platform transforms food rescue from a complex logistical challenge into a simple, rewarding experience. Whether you're a restaurant owner with surplus biryani, a volunteer with a few hours to spare, or an NGO serving communities, MissionThali connects you instantly with those who need your contribution most.</p>
+                        
+                        <p>Join thousands of Indians who have already made MissionThali their platform of choice for creating meaningful impact. Together, we're not just preventing food waste – we're building stronger, more caring communities where abundance is shared and no resource goes to waste. Every meal rescued through our platform represents a family fed, a life touched, and a step toward a more equitable society.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <div class="container">
+                    <h2 class="section-title">How It Works</h2>
+                    <div class="action-grid">
+                        <div class="action-card donor-card">
+                            <div class="action-icon">🍕</div>
+                            <h3>Donate Surplus Food</h3>
+                            <p>Upload photos, specify quantity, set pickup time. Your surplus food reaches those in need within hours.</p>
+                            <button class="btn btn-primary" onclick="openModal('donorModal')">Become a Donor</button>
+                        </div>
+                        <div class="action-card volunteer-card">
+                            <div class="action-icon">🚗</div>
+                            <h3>Volunteer for Pickup</h3>
+                            <p>Get instant alerts for nearby food donations. Pick up and deliver to NGOs or directly to beneficiaries.</p>
+                            <button class="btn btn-primary" onclick="openModal('volunteerModal')">Join as Volunteer</button>
+                        </div>
+                        <div class="action-card ngo-card">
+                            <div class="action-icon">🏢</div>
+                            <h3>NGO Partnership</h3>
+                            <p>Register your NGO to receive consistent food donations and coordinate with our volunteer network.</p>
+                            <button class="btn btn-primary" onclick="openModal('ngoModal')">Partner with Us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <div class="container">
+                    <h2 class="section-title" style="color: white;">What Our Community Says</h2>
+                    <div class="testimonial-grid">
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                "MissionThali has transformed how our restaurant handles surplus food. Instead of throwing away perfectly good meals, we now feed 20-30 families daily. The joy on people's faces is priceless."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">RK</div>
+                                <div class="author-info">
+                                    <h4>Rajesh Kumar</h4>
+                                    <div class="author-role">Restaurant Owner, Delhi</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                "As a volunteer, I've delivered over 200 meals in just 3 months. The app makes it so easy to find nearby donations and the real-time tracking keeps everyone informed. I feel like I'm making a real difference."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">PS</div>
+                                <div class="author-info">
+                                    <h4>Priya Sharma</h4>
+                                    <div class="author-role">Volunteer, Mumbai</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                "Our NGO now receives consistent food donations through MissionThali. The platform has helped us feed an additional 150 children daily. The impact on our community has been tremendous."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MG</div>
+                                <div class="author-info">
+                                    <h4>Meera Gupta</h4>
+                                    <div class="author-role">NGO Director, Bangalore</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                "The impact tracker shows we've rescued 500+ meals from our wedding venue. It feels amazing to know that our celebration brought joy to so many families in need."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AS</div>
+                                <div class="author-info">
+                                    <h4>Arjun Singh</h4>
+                                    <div class="author-role">Event Organizer, Jaipur</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                "The real-time notifications ensure we never miss an opportunity to help. Yesterday, we rescued fresh rotis from a local event and distributed them to 40 families within 2 hours."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">LT</div>
+                                <div class="author-info">
+                                    <h4>Lakshmi Tiwari</h4>
+                                    <div class="author-role">Community Leader, Pune</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                "MissionThali's GPS integration is fantastic. I can see exactly where donations are available and plan my route efficiently. It's like having a superpower for doing good!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">VK</div>
+                                <div class="author-info">
+                                    <h4>Vikram Khanna</h4>
+                                    <div class="author-role">Student Volunteer, Chennai</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="page-section" id="about">
+            <div class="content-section">
+                <div class="container">
+                    <h2 class="section-title">About MissionThali</h2>
+                    <div class="content-text">
+                        <p>MissionThali was born from a simple yet powerful observation: while millions of Indians face hunger daily, an enormous amount of perfectly good food goes to waste across our cities. Founded in 2025 by a team of passionate technologists and social activists, our platform represents the convergence of cutting-edge technology with grassroots social impact.</p>
+                        
+                        <p>Our journey began when our founder witnessed the heartbreaking contrast during a wedding celebration in Delhi. While elaborate spreads remained untouched on buffet tables, just outside the venue, families searched through garbage bins for their next meal. This moment sparked the vision for MissionThali – a platform that could instantly connect food abundance with genuine need.</p>
+                        
+                        <p>Today, MissionThali operates as India's most comprehensive real-time food rescue platform, leveraging advanced GPS technology, machine learning algorithms, and community-driven networks to ensure surplus food reaches those who need it most. Our platform seamlessly integrates with restaurants, event venues, corporate cafeterias, and households to create an efficient ecosystem of food redistribution.</p>
+                        
+                        <p>What sets MissionThali apart is our holistic approach to food rescue. We don't just facilitate food donations – we build lasting relationships between donors, volunteers, and beneficiaries. Our advanced matching algorithm considers proximity, food type, volunteer capacity, and recipient preferences to optimize every rescue mission. Real-time tracking ensures transparency, while our impact metrics help donors see the tangible difference their contributions make.</p>
+                        
+                        <p>Our technology infrastructure is built for scale and reliability. The platform supports multiple languages, works seamlessly across all device types, and includes robust security features to protect user data. We've partnered with leading mapping services to provide accurate, real-time location data, and our notification system ensures volunteers can respond quickly to time-sensitive food donations.</p>
+                        
+                        <p>Behind our technology lies a deep commitment to social equity and environmental sustainability. Every meal rescued through MissionThali represents not just a person fed, but also a reduction in methane emissions from food waste, conservation of the water and energy used in food production, and a step toward more sustainable urban food systems.</p>
+                        
+                        <p>Our team combines decades of experience in technology, logistics, social work, and public policy. We work closely with government agencies, NGOs, corporate partners, and community organizations to create a comprehensive support network for food security. Our advisory board includes nutrition experts, sustainability advocates, and community leaders who ensure our platform serves real-world needs effectively.</p>
+                        
+                        <p>MissionThali's impact extends beyond immediate hunger relief. We're fostering a culture of mindful consumption, community cooperation, and social responsibility. Through our platform, a restaurant owner becomes a community hero, a volunteer discovers the joy of service, and an NGO gains reliable access to resources. We're proving that technology can be a powerful force for social good when designed with empathy and purpose.</p>
+                        
+                        <p>Looking ahead, our vision is ambitious yet achievable: a India where no edible food goes to waste and no person goes hungry. We're expanding our platform to include features like nutrition tracking, volunteer skill development, donor recognition programs, and integration with government food security initiatives. Our goal is to create a nationwide network of food rescue that operates as efficiently as any commercial logistics system.</p>
+                        
+                        <p>Join us in this mission. Whether you're a business owner looking to reduce waste, a volunteer wanting to make a difference, or an organization serving communities in need, MissionThali provides the tools, connections, and support to amplify your impact. Together, we're not just rescuing food – we're building a more equitable, sustainable, and compassionate society, one meal at a time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Section -->
+        <section class="page-section" id="volunteer">
+            <div class="content-section">
+                <div class="container">
+                    <h2 class="section-title">Join Our Volunteer Community</h2>
+                    <div class="content-text">
+                        <p>Volunteering with MissionThali is more than just picking up and delivering food – it's about becoming part of a transformative movement that's reshaping how communities care for one another. Our volunteers are the heartbeat of our platform, the bridge between abundance and need, and the heroes who turn potential waste into life-sustaining nourishment.</p>
+                        
+                        <p>Every MissionThali volunteer plays a crucial role in our food rescue ecosystem. When you join our community, you become part of a network of over 500 active volunteers across major Indian cities, each contributing their unique skills, time, and passion to ensure no good food goes to waste. Our volunteers come from all walks of life – students using their free time to make a difference, working professionals dedicating weekends to service, retirees channeling their wisdom into community impact, and families teaching their children the values of sharing and caring.</p>
+                        
+                        <p>The volunteer experience on MissionThali is designed to be flexible, rewarding, and impactful. Our intelligent matching system considers your location, availability, transportation mode, and preferences to suggest the most suitable rescue missions. Whether you have 30 minutes during lunch break or an entire evening to dedicate, our platform ensures your time creates maximum impact. You might find yourself rescuing fresh rotis from a local restaurant, collecting surplus vegetables from a grocery store, or picking up elaborate spreads from corporate events.</p>
+                        
+                        <p>What makes volunteering with MissionThali particularly meaningful is the direct, immediate impact you can see and measure. Our real-time tracking system shows you exactly how many meals you've rescued, how many families you've fed, and the environmental impact of your efforts. Many volunteers tell us that seeing a child's smile when receiving a hot meal, or a grandmother's gratitude for fresh vegetables, has been life-changing for them personally.</p>
+                        
+                        <p>We provide comprehensive support to ensure every volunteer feels confident and prepared. New volunteers receive orientation sessions covering food safety protocols, efficient pickup and delivery procedures, communication best practices, and how to use our mobile app effectively. Our community managers are always available to answer questions, resolve challenges, and provide guidance. We also offer specialized training for volunteers interested in taking on additional responsibilities, such as becoming area coordinators or food safety ambassadors.</p>
+                        
+                        <p>The flexibility of volunteering with MissionThali is one of our greatest strengths. Our platform accommodates volunteers with different schedules, transportation options, and capacity levels. Students can volunteer between classes, professionals can contribute during commutes, and families can make food rescue a weekend activity that teaches children about social responsibility. Whether you're walking, cycling, driving a car, or have access to a larger vehicle, there are rescue missions perfectly suited to your situation.</p>
+                        
+                        <p>Beyond individual impact, MissionThali volunteers become part of a larger community working toward systemic change. We regularly organize volunteer meetups, appreciation events, and community service projects that strengthen bonds between members and amplify our collective impact. These gatherings are opportunities to share experiences, learn from one another, celebrate successes, and plan collaborative initiatives that address broader food security challenges.</p>
+                        
+                        <p>Our volunteer recognition program acknowledges and celebrates the contributions of our community members. Top volunteers receive certificates, special badges on their profiles, and opportunities to participate in platform development feedback sessions. We also feature volunteer stories on our social media channels and in community newsletters, helping inspire others to join our movement while giving recognition to those making extraordinary contributions.</p>
+                        
+                        <p>For volunteers interested in deeper engagement, MissionThali offers leadership opportunities that help develop valuable skills while creating greater impact. Area coordinators help onboard new volunteers and manage local operations. Food safety ambassadors provide specialized training and ensure quality standards. Community outreach volunteers help identify new donor partners and beneficiary organizations. These roles provide excellent experience in project management, community organizing, and social impact measurement.</p>
+                        
+                        <p>The personal growth that comes from volunteering with MissionThali extends far beyond the immediate service experience. Volunteers consistently report increased awareness of food security issues, improved understanding of their local communities, enhanced problem-solving skills, and a deeper sense of purpose and connection. Many volunteers have discovered new career paths in social work, nonprofit management, or social entrepreneurship through their MissionThali experience.</p>
+                        
+                        <p>Join the MissionThali volunteer community today and discover how your time, energy, and compassion can create ripple effects of positive change throughout your community. Whether you can volunteer once a month or multiple times per week, whether you're available for emergency rescues or prefer scheduled pickups, there's a place for you in our movement. Together, we're proving that ordinary people can create extraordinary change when technology, community, and purpose align.</p>
+                    </div>
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <button class="btn btn-primary" onclick="openModal('volunteerModal')" style="font-size: 1.2rem; padding: 1rem 2rem;">Start Volunteering Today</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donate Section -->
+        <section class="page-section" id="donate">
+            <div class="donation-page">
+                <div class="container">
+                    <h2 class="section-title">Support MissionThali</h2>
+                    <div class="content-text" style="text-align: center; margin-bottom: 3rem;">
+                        <p>Your financial support helps us maintain our platform, expand our reach, and develop new features that make food rescue even more effective. Every donation directly contributes to reducing food waste and feeding those in need across India.</p>
+                    </div>
+                    
+                    <div class="qr-container">
+                        <h3>Quick Donation via QR Code</h3>
+                        <p>Scan the QR code below to proceed with your donation</p>
+                        <img src="WhatsApp Image 2025-08-13 at 18.35.50_3ba8b6e3.jpg" alt="Qr-code" width="400" height="400">
+                        <p style="color: #666; font-size: 0.9rem;">Secure payment gateway powered by leading Indian banks</p>
+                    </div>
+
+                    <div class="payment-interface" id="paymentInterface">
+                        <h3 style="text-align: center; margin-bottom: 2rem;">Complete Your Donation</h3>
+                        
+                        <div class="form-group">
+                            <label>Select Amount</label>
+                            <div class="amount-buttons">
+                                <button class="amount-btn" onclick="selectAmount(100)">₹100</button>
+                                <button class="amount-btn" onclick="selectAmount(250)">₹250</button>
+                                <button class="amount-btn" onclick="selectAmount(500)">₹500</button>
+                                <button class="amount-btn" onclick="selectAmount(1000)">₹1000</button>
+                                <button class="amount-btn" onclick="selectAmount(2500)">₹2500</button>
+                                <button class="amount-btn" onclick="selectAmount(5000)">₹5000</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Custom Amount</label>
+                            <input type="number" id="customAmount" placeholder="Enter amount in ₹" min="10">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Payment Method</label>
+                            <div class="payment-options">
+                                <div class="payment-option" onclick="selectPaymentMethod('upi')">
+                                    <div style="font-size: 1.5rem;">📱</div>
+                                    <div>UPI</div>
+                                </div>
+                                <div class="payment-option" onclick="selectPaymentMethod('card')">
+                                    <div style="font-size: 1.5rem;">💳</div>
+                                    <div>Card</div>
+                                </div>
+                                <div class="payment-option" onclick="selectPaymentMethod('netbanking')">
+                                    <div style="font-size: 1.5rem;">🏦</div>
+                                    <div>Net Banking</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Donor Name (Optional)</label>
+                            <input type="text" placeholder="Enter your name for receipt">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email for Receipt</label>
+                            <input type="email" placeholder="Enter email for donation receipt">
+                        </div>
+
+                        <button class="btn btn-primary" onclick="processPayment()" style="width: 100%; font-size: 1.1rem; padding: 1rem;">
+                            Donate Now
+                        </button>
+
+                        <div class="success-animation" id="successAnimation">
+                            <div class="success-icon">✅</div>
+                            <h3>Thank You!</h3>
+                            <p>Your donation has been processed successfully. A receipt has been sent to your email.</p>
+                            <p style="color: #27ae60; font-weight: bold;">Your contribution will help rescue approximately <span id="mealCount">0</span> meals!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="page-section" id="map">
+            <div class="live-feed">
+                <div class="container">
+                    <h2 class="section-title">Live Food Rescue Map</h2>
+                    <button class="location-btn" onclick="getLocation()">📍 Enable Location for Nearby Donations</button>
+                    <div class="feed-container">
+                        <div class="map-section">
+                            <h3>Real-time Locations</h3>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13104.306255394295!2d75.73003003330435!3d26.904233345541336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db49e043a7acb%3A0xdad09ace57371810!2sVaishali%20Nagar%2C%20Jaipur%2C%20Rajasthan!5e1!3m2!1sen!2sin!4v1755102644857!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="donations-list">
+                            <h3>Recent Donations</h3>
+                            <div class="donation-item">
+                                <div class="donation-image">🍛</div>
+                                <div class="donation-info">
+                                    <div class="donation-title">Fresh Biryani - 25 plates</div>
+                                    <div class="donation-details">Restaurant • Connaught Place • 2.3 km away</div>
+                                </div>
+                                <div class="timer">47 min left</div>
+                            </div>
+                            <div class="donation-item">
+                                <div class="donation-image">🍞</div>
+                                <div class="donation-info">
+                                    <div class="donation-title">Bread & Pastries - 15 items</div>
+                                    <div class="donation-details">Bakery • Karol Bagh • 1.8 km away</div>
+                                </div>
+                                <div class="timer">1hr 23min left</div>
+                            </div>
+                            <div class="donation-item">
+                                <div class="donation-image">🥗</div>
+                                <div class="donation-info">
+                                    <div class="donation-title">Vegetable Curry - 40 servings</div>
+                                    <div class="donation-details">Wedding Hall • Janakpuri • 4.2 km away</div>
+                                </div>
+                                <div class="timer">2hr 15min left</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modals -->
+    <!-- Donor Modal -->
+    <div class="modal" id="donorModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('donorModal')">&times;</span>
+            <h2>Donate Food</h2>
+            <form onsubmit="submitDonation(event)">
+                <div class="form-group">
+                    <label>Food Type</label>
+                    <select required>
+                        <option value="">Select food type</option>
+                        <option>Cooked Meals</option>
+                        <option>Raw Vegetables</option>
+                        <option>Packaged Food</option>
+                        <option>Baked Items</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Number of Plates/Servings</label>
+                    <input type="number" placeholder="Enter quantity" required min="1">
+                </div>
+                <div class="form-group">
+                    <label>Pickup Time</label>
+                    <input type="datetime-local" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" placeholder="+91 9999999999" required pattern="[+]91[0-9]{10}">
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea placeholder="Enter pickup address" required rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Food Photo (Optional)</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary">List Food Donation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Volunteer Modal -->
+    <div class="modal" id="volunteerModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('volunteerModal')">&times;</span>
+            <h2>Join as Volunteer</h2>
+            <form onsubmit="submitVolunteerForm(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" placeholder="+91 9999999999" required pattern="[+]91[0-9]{10}">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Vehicle Type</label>
+                    <select required>
+                        <option value="">Select vehicle</option>
+                        <option>Two Wheeler</option>
+                        <option>Car</option>
+                        <option>Van/Truck</option>
+                        <option>Walking</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Available Areas</label>
+                    <input type="text" placeholder="Enter areas you can cover" required>
+                </div>
+                <div class="form-group">
+                    <label>Availability</label>
+                    <select required>
+                        <option value="">Select availability</option>
+                        <option>Anytime</option>
+                        <option>Morning (6AM-12PM)</option>
+                        <option>Afternoon (12PM-6PM)</option>
+                        <option>Evening (6PM-12AM)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Register as Volunteer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- NGO Modal -->
+    <div class="modal" id="ngoModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ngoModal')">&times;</span>
+            <h2>NGO Partnership</h2>
+            <form onsubmit="submitNGOForm(event)">
+                <div class="form-group">
+                    <label>Organization Name</label>
+                    <input type="text" placeholder="Enter NGO name" required>
+                </div>
+                <div class="form-group">
+                    <label>Registration Number</label>
+                    <input type="text" placeholder="NGO registration number" required>
+                </div>
+                <div class="form-group">
+                    <label>Contact Person</label>
+                    <input type="text" placeholder="Primary contact name" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" placeholder="+91 9999999999" required pattern="[+]91[0-9]{10}">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="Enter email address" required>
+                </div>
+                <div class="form-group">
+                    <label>Service Areas</label>
+                    <textarea placeholder="Areas where you provide services" required rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Beneficiary Count</label>
+                    <input type="number" placeholder="Number of people you serve daily" required min="1">
+                </div>
+                <button type="submit" class="btn btn-primary">Apply for Partnership</button>
+            </form>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
